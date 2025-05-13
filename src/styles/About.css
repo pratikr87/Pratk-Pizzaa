@@ -1,37 +1,63 @@
+:root {
+  --primary-font: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  --heading-color: #000;
+  --text-width: 80%;
+  --max-text-width: 1200px;
+  --heading-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
 .about {
-    width: 100%;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--primary-font);
+}
+
+/* Top Section with Background Image */
+.aboutTop {
+  width: 100%;
+  height: 45vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Bottom Section Content */
+.aboutBottom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.aboutBottom h1 {
+  font-weight: 400;
+  font-size: var(--heading-size);
+  color: var(--heading-color);
+  margin: 0;
+  transform: translateY(-1.5rem);
+}
+
+.aboutBottom p {
+  width: var(--text-width);
+  max-width: var(--max-text-width);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .aboutBottom h1 {
+    font-size: 2rem;
   }
-  
-  .aboutTop {
-    width: 100%;
-    height: 45%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  }
-  
-  .aboutBottom {
-    display: flex;
-    flex-direction: column;
-    height: 55%;
-    align-items: center;
-    margin-top: 50px;
-  }
-  
+
   .aboutBottom p {
-    width: 1200px;
+    width: 95%;
+    font-size: 1rem;
   }
-  
-  .about .aboutBottom h1 {
-    font-weight: 400;
-    font-size: 70px;
-    color: black;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    transform: translateY(-40px);
-  }
+}

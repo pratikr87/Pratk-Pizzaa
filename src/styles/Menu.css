@@ -1,69 +1,148 @@
 .menu {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.menu .menuTitle {
-  font-family: cursive;
-  font-size: 60px;
-  margin-bottom: 20px;
+  padding: 40px 20px;
   text-align: center;
 }
 
+.menuTitle {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
 .menuList {
-  width: 100%;
-  max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  place-items: center;
+  gap: 30px;
+  justify-items: center;
 }
 
 .menuItem {
-  border-radius: 15px;
   width: 100%;
-  max-width: 300px;
-  height: 350px;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
+  max-width: 250px;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
   background-color: #fff;
-  transition: box-shadow 0.3s ease-in;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menuItem:hover {
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.menuItem div {
+.menuItemImage {
   width: 100%;
   height: 200px;
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  margin-bottom: 12px;
+  border-radius: 8px;
 }
 
 .menuItem h1 {
-  margin: 10px 20px 5px 20px; /* top, right, bottom, left */
+  font-size: 20px;
+  margin: 15px 0 10px;
+  color: #34495e;
 }
 
 .menuItem p {
-  margin: 0 20px 10px 20px; /* no top margin to tighten spacing below h1 */
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 15px;
 }
 
-/* Responsive Design */
-@media only screen and (max-width: 1300px) {
+/* Common Button Styles */
+.addBtn,
+.removeBtn,
+.qtyBtn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  background-color: #e67e22;
+  color: white;
+  transition: background-color 0.3s ease-in;
+}
+
+.addBtn:hover,
+.removeBtn:hover,
+.qtyBtn:hover {
+  background-color: #d35400;
+}
+
+/* Specific tweak for qty buttons */
+.qtyBtn {
+  padding: 6px 12px;
+  font-size: 16px;
+  margin-top: 0;
+}
+
+/* Quantity Controls */
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.qtyDisplay {
+  font-size: 16px;
+  font-weight: bold;
+  width: 30px;
+  text-align: center;
+}
+
+/* Media Queries */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .menuTitle {
+    font-size: 28px;
+  }
+
   .menuList {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .menuItem {
+    max-width: 200px;
+  }
+
+  .menuItem h1 {
+    font-size: 18px;
+  }
+
+  .menuItem p {
+    font-size: 14px;
   }
 }
 
-@media only screen and (max-width: 800px) {
+/* Phones */
+@media (max-width: 480px) {
+  .menuTitle {
+    font-size: 24px;
+  }
+
   .menuList {
     grid-template-columns: 1fr;
+  }
+
+  .menuItem {
+    max-width: 100%;
+  }
+
+  .menuItemImage {
+    height: 140px;
+  }
+
+  .menuItem button {
+    padding: 8px 16px;
+    font-size: 14px;
   }
 }
