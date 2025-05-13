@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import ReorderIcon from "@mui/icons-material/Reorder";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"; 
+import Badge from "@mui/material/Badge"; 
 import Logo from "../assets/pizzaLogo.png";
 import "../styles/Navbar.css";
+import { useCart } from "../context/CartContext";
 
 function Navbar() {
   const [openLinks, setOpenLinks] = useState(false);
+  const { cartItems } = useCart();
 
   const toggleNavbar = () => {
     setOpenLinks(!openLinks);
@@ -27,9 +30,19 @@ function Navbar() {
         <Link to="/menu">Menu</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
-        <button onClick={toggleNavbar}>
-          <ReorderIcon />
-        </button>
+        <Link to="/cart" className="cartLink">
+          <Badge
+            badgeContent={cartItems.length}
+            sx={{
+              "& .MuiBadge-badge": {
+                backgroundColor: "#000000",
+                color: "white",
+              },
+            }}
+          >
+            <ShoppingCartIcon style={{ color: "white" }} />
+          </Badge>
+        </Link>
       </div>
     </div>
   );
